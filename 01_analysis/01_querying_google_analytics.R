@@ -3,16 +3,11 @@ library(googleAnalyticsR)
 # authorize google analytics to get data
 ga_auth()
 
-# Generate a list of all the Google Analytics accounts you have access to
-
-ga_accounts <- ga_account_list()
-# View(ga_accounts)
-
-# Date range
+# Date range ----
 start_date <- '2018-01-01'
 end_date <- Sys.Date()-1
 
-# Download the data and store them in a dataframe
+# Download Data ----
 user_results <-google_analytics(Sys.getenv("google_analytics_id"),
                                 date_range = c(start_date, end_date),
                                 metrics = c("users",'newUsers','percentNewSessions','sessionsPerUser'),
@@ -85,3 +80,6 @@ time_results <- google_analytics(Sys.getenv("google_analytics_id"),
                                      dimensions = c('date','hour','minute','dayOfWeekName','dateHour'),
                                      max = -1,
                                      anti_sample = TRUE)
+
+
+# Export data ----

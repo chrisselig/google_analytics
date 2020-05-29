@@ -1,11 +1,11 @@
+#################################################################################
+# Script is used to generate a shiny app showing google analytics for 
+# the website bidamia.ca
+# 
 #
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
+# Scripted created by Chris Selig June 2020
 #
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+#################################################################################
 
 library(shiny)
 
