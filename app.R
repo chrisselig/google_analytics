@@ -7,27 +7,51 @@
 #
 #################################################################################
 
+# 0.1 Libraries ----
+# 0.1.1 Shiny Libraries ----
 library(shiny)
+library(shinyWidgets)
+library(shinythemes)
+library(shinyjs)
 
-# Define UI for application that draws a histogram
-ui <- fluidPage(
+# 0.1.2 Data manipulation libraries
+library(tidyverse)
+library(lubridate)
+library(scales)
 
-    # Application title
-    titlePanel("Old Faithful Geyser Data"),
+# 0.1.3 Plotting/Plot Formatting Libraries ----
+library(ggthemes)
+library(plotly)
 
-    # Sidebar with a slider input for number of bins 
-    sidebarLayout(
-        sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
+# 1.0 UI Section ----
+ui <- 
+    
+    tagList(
+        # * CSS ----
+        tags$head(
+            tags$link(rel = "stylesheet", type = "text/css", href = "styles.css"),
+            tags$link(href="https://fonts.googleapis.com/css?family=Old+Standard+TT:400,700&display=swap", rel="stylesheet")
         ),
+        
+        # * JS ----
+        shinyjs::useShinyjs(),
+        
+    navbarPage(
 
-        # Show a plot of the generated distribution
-        mainPanel(
-           plotOutput("distPlot")
+        # Title
+        title = "Google Analytics Results for bidamia.ca",
+        
+        collapsible = TRUE,
+        
+        theme = shinytheme("flatly"),
+        
+        tabPanel(
+            class = "tabPanel",
+            "User Geographics"
+        ),
+        tabPanel(
+            class = 'tabPanel',
+            "Session Statistics"
         )
     )
 )
